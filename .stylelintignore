@@ -1,0 +1,9 @@
+./packages/**/*.png
+./packages/**/*.svg
+./packages/**/*.jpg
+./packages/**/*.jpeg
+./packages/**/*.woff2
+./packages/**/*.woff
+./packages/**/*.ttf
+
+.env

@@ -1,0 +1,38 @@
+{
+  "name": "build-utils",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "./dist"
+  ],
+  "repository": {
+    "directory": "packages/build-utils"
+  },
+  "scripts": {
+    "swagger": "node swagger-parse.js",
+    "start": "node ./dist/index.js",
+    "build:build-utils": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
+    "watch:build-utils": "concurrently --kill-others \"tsc -w\" \"tsc-alias -w\"",
+    "clean:build-utils": "rm -rf dist"
+  },
+  "dependencies": {
+    "chalk": "4.1.2",
+    "config-utils": "workspace:*",
+    "vtb-constants": "workspace:^",
+    "yaml": "^2.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.18.14",
+    "concurrently": "^8.0.1",
+    "tsc-alias": "^1.8.5",
+    "typescript": "^5.0.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  }
+}

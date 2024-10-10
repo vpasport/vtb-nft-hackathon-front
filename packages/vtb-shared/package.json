@@ -1,0 +1,74 @@
+{
+  "name": "vtb-shared",
+  "version": "0.1.0",
+  "files": [
+    "./dist"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "directory": "packages/vtb-shared"
+  },
+  "description": "VTB shared",
+  "peerDependencies": {
+    "@radix-ui/themes": "^3.1.4",
+    "@types/react": "^18.0.33",
+    "react": "^18.3.1",
+    "react-device-detect": "^2.2.3",
+    "react-router-dom": "6",
+    "typescript": "^5.0.2"
+  },
+  "private": true,
+  "dependencies": {
+    "@radix-ui/themes": "^3.1.4",
+    "@turf/nearest-point": "^6.5.0",
+    "classnames": "^2.3.2",
+    "react": "^18.3.1",
+    "react-device-detect": "^2.2.3",
+    "react-dom": "^18.3.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "lint": "eslint --ext .ts,.tsx src --fix",
+    "watch:shared": "rollup -c -w",
+    "build:shared": "rollup -c",
+    "clean:shared": "rm -rf dist"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      "defaults",
+      "not ie 11"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@rollup/plugin-alias": "^5.0.0",
+    "@rollup/plugin-commonjs": "^25.0.3",
+    "@rollup/plugin-image": "^3.0.2",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-typescript": "^12.1.0",
+    "@svgr/rollup": "^8.1.0",
+    "@types/node": "^18.15.11",
+    "@types/react": "^18.0.33",
+    "@types/react-dom": "^18.0.11",
+    "dotenv": "^16.0.3",
+    "process": "^0.11.10",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.35.0",
+    "tslib": "^2.7.0",
+    "typescript": "^5.0.2"
+  }
+}

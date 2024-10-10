@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "outDir": "./dist",
+    "target": "ESNext",
+    "module": "CommonJS",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    // "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "importHelpers": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": false,
+    "declaration": true,
+    "declarationMap": true,
+    "allowSyntheticDefaultImports": true,
+    "types": ["node"]
+    // "esModuleInterop": true,
+    // "strict": true,
+    // "noFallthroughCasesInSwitch": true,
+    // "resolveJsonModule": true,
+    // "isolatedModules": true,
+    // "noEmit": true
+  },
+  "include": ["**/*.ts", "**/*.tsx"]
+}

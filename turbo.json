@@ -1,0 +1,41 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [
+    "**/.env.*local"
+  ],
+  "tasks": {
+    "build:config-utils": {
+      "outputs": [
+        "dist/**"
+      ],
+      "dependsOn": []
+    },
+    "build:build-utils": {
+      "outputs": [
+        "dist/**"
+      ],
+      "dependsOn": []
+    },
+    "build:shared": {
+      "outputs": [
+        "dist/**"
+      ],
+      "dependsOn": []
+    },
+    "build:constants": {
+      "outputs": [
+        "dist/**"
+      ],
+      "dependsOn": []
+    },
+    "build:micro": {
+      "outputs": [
+        "dist/**"
+      ],
+      "dependsOn": []
+    },
+    "start:micro": {
+      "persistent": true
+    }
+  }
+}

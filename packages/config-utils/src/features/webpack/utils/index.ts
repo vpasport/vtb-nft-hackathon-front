@@ -1,0 +1,1 @@
+export { getHtmlWebpackPluginConfig } from './plugins'

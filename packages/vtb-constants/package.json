@@ -1,0 +1,31 @@
+{
+  "name": "vtb-constants",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "./dist"
+  ],
+  "repository": {
+    "directory": "packages/vtb-constants"
+  },
+  "scripts": {
+    "swagger": "node swagger-parse.js",
+    "build:constants": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
+    "watch:constants": "concurrently --kill-others \"tsc -w\" \"tsc-alias -w\"",
+    "clean:constants": "rm -rf dist"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^8.0.1",
+    "tsc-alias": "^1.8.5",
+    "typescript": "^5.0.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  }
+}

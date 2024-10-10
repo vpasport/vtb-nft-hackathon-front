@@ -1,0 +1,16 @@
+build_option:
+  # build_dir_name: build-test
+  packages_dir: apps
+  packages_build_dir: dist
+
+container:
+  vtbNFT:
+    dir: container
+    to_build: true
+    build_dir: ''
+
+login:
+  vtbNFT:
+    dir: login
+    build_dir: login
+    to_build: true
