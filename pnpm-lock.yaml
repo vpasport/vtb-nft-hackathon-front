@@ -212,6 +212,9 @@ importers:
       vtb-constants:
         specifier: workspace:^
         version: link:../../packages/vtb-constants
+      vtb-shared:
+        specifier: workspace:^
+        version: link:../../packages/vtb-shared
     devDependencies:
       '@babel/preset-env':
         specifier: ^7.20.2

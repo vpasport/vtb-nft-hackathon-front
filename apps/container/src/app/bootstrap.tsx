@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client'
 
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { Theme } from '@radix-ui/themes'
+import { ThemeContextProvider } from 'vtb-shared'
 
 import { ContainerApp } from './app'
 
@@ -21,8 +21,8 @@ const queryClient = new QueryClient({
 
 root.render(
   <QueryClientProvider client={queryClient}>
-    <Theme>
+    <ThemeContextProvider>
       <ContainerApp />
-    </Theme>
+    </ThemeContextProvider>
   </QueryClientProvider>,
 )

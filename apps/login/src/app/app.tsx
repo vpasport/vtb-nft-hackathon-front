@@ -1,11 +1,7 @@
 import type { FC } from 'react'
 
-import { Button, Flex } from '@radix-ui/themes'
+import { LoginForm } from '@/widgets/login-form'
 
 export const LoginApp: FC = () => {
-  return (
-    <Flex>
-      <Button>Login app</Button>
-    </Flex>
-  )
+  return <LoginForm />
 }

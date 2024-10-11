@@ -1,11 +1,12 @@
 import ReactDOM from 'react-dom/client'
 
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { Theme } from '@radix-ui/themes'
+import { ThemeContextProvider } from 'vtb-shared'
 
 import { LoginApp } from './app'
 
 import './bootstrap.scss'
+import { BrowserRouter } from 'react-router-dom'
 
 const root = ReactDOM.createRoot(document.getElementById('root')!)
 
@@ -20,8 +21,10 @@ const queryClient = new QueryClient({
 
 root.render(
   <QueryClientProvider client={queryClient}>
-    <Theme>
-      <LoginApp />
-    </Theme>
+    <ThemeContextProvider>
+      <BrowserRouter>
+        <LoginApp />
+      </BrowserRouter>
+    </ThemeContextProvider>
   </QueryClientProvider>,
 )

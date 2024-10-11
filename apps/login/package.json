@@ -11,7 +11,8 @@
     "react-query": "^3.39.3",
     "react-router": "^6.9.0",
     "react-router-dom": "6",
-    "vtb-constants": "workspace:^"
+    "vtb-constants": "workspace:^",
+    "vtb-shared": "workspace:^"
   },
   "scripts": {
     "start": "react-app-rewired start",
