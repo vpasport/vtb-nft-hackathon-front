@@ -1,4 +1,4 @@
-import path from 'path'
+import path from 'node:path'
 import alias from '@rollup/plugin-alias'
 import commonjs from '@rollup/plugin-commonjs'
 import image from '@rollup/plugin-image'
@@ -12,6 +12,12 @@ import replace from '@rollup/plugin-replace'
 // import flatDts from 'rollup-plugin-flat-dts';
 // import nodeResolve from '@rollup/plugin-node-resolve';
 // import json from "@rollup/plugin-json";
+import ts from 'typescript'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+
+const __dirname = path.dirname(__filename)
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default [
@@ -26,7 +32,14 @@ export default [
       //   moduleName: 'cube-components',
       // })]
     },
-    external: ['@radix-ui/themes', 'react', 'react-dom', 'react/jsx-runtime'],
+    external: [
+      '@radix-ui/themes',
+      'react',
+      'react-dom',
+      'react-router-dom',
+      'react/jsx-runtime',
+      './rollup.config.js',
+    ],
     plugins: [
       replace({
         values: {},
@@ -51,7 +64,7 @@ export default [
       }),
       commonjs(),
       typescript({
-        typescript: require('typescript'),
+        typescript: ts,
         tsconfig: './tsconfig.json',
         // declaration: true,
         // declarationDir: 'dist',
