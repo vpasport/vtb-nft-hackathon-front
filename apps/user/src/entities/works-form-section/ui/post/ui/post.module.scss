@@ -1,0 +1,11 @@
+.works-section {
+  &-post {
+    &-name {
+      flex: 2;
+    }
+
+    &-date {
+      flex: 1;
+    }
+  }
+}

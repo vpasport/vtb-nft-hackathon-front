@@ -7,6 +7,7 @@ import { getHtmlWebpackPluginConfig } from './utils'
 
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 export const defaultConfig = (
   env: any,
@@ -69,27 +70,10 @@ export const defaultConfig = (
             },
           ],
         },
-
-        // {
-        //   test: /\.css$/i,
-        //   use: [
-        //     'style-loader',
-        //     // {
-        //     //   loader: 'css-loader',
-        //     //   options: {
-        //     //     modules: {
-        //     //       localIdentName: '[name]__[local]-[hash:base64:5]',
-        //     //     },
-        //     //   },
-        //     // },
-        //     'css-loader',
-        //     // 'postcss-loader',
-        //     // 'sass-loader',
-        //   ],
-        // },
         {
           test: /\.(s[ac]|c)ss$/i,
           use: [
+            // { loader: MiniCssExtractPlugin.loader },
             'style-loader',
             // {
             //   loader: 'css-loader',
@@ -104,6 +88,24 @@ export const defaultConfig = (
             'sass-loader',
           ],
         },
+        // {
+        //   test: /\.css$/,
+        //   use: ['style-loader', 'css-loader'],
+        // },
+        // {
+        //   test: /\.scss$/,
+        //   use: [
+        //     {
+        //       loader: 'style-loader', // creates style nodes from JS strings
+        //     },
+        //     {
+        //       loader: 'css-loader', // translates CSS into CommonJS
+        //     },
+        //     {
+        //       loader: 'sass-loader', // compiles Sass to CSS
+        //     },
+        //   ],
+        // },
         {
           test: /\.svg$/,
           issuer: {
@@ -145,6 +147,7 @@ export const defaultConfig = (
       ],
     },
     plugins: [
+      // new MiniCssExtractPlugin(),
       option.withHtml &&
         getHtmlWebpackPluginConfig('public/index.html', {
           filename: 'index.html',
@@ -201,10 +204,10 @@ export const defaultConfig = (
       }),
     ],
     resolve: {
-      // alias: {
-      //   // process: 'process/browser',
-      //   // process: require.resolve('process/browser'),
-      // },
+      alias: {
+        process: 'process/browser',
+        // process: require.resolve('process/browser'),
+      },
       extensions: ['.ts', '.tsx', '.js', '.jsx'],
       plugins: [
         new TsconfigPathsPlugin({
