@@ -52,11 +52,11 @@ export const useDynamicScript = ({
       script.onload = async () => {
         console.debug(`Dynamic Script Loaded: ${url}`)
 
-        microservices[scope] = lazy(() =>
-          loadComponent(scope, module).then((module) => {
+        microservices[scope] = await lazy(() => {
+          return loadComponent(scope, module).then((module) => {
             return { default: module[scope] }
-          }),
-        )
+          })
+        })
         setComponent(microservices[scope])
       }
 

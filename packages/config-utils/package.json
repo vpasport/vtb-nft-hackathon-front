@@ -17,6 +17,7 @@
     "clean:config-utils": "rm -rf dist"
   },
   "dependencies": {
+    "@metamask/snaps-webpack-plugin": "^4.1.2",
     "copy-webpack-plugin": "^11.0.0",
     "dotenv": "^16.3.1",
     "html-webpack-plugin": "^5.5.3",

@@ -3,14 +3,12 @@ const { eagers } = require('config-utils')
 
 const deps = require('./package.json').dependencies
 
-module.exports = (mfeConfigs) => {
+module.exports = (mfeConfigs, isMicro = true) => {
   return new ModuleFederationPlugin({
-    name: mfeConfigs.container.vtbNFT.scope,
-    remotes: {
-      [mfeConfigs.login.vtbNFT.scope]:
-        `${mfeConfigs.login.vtbNFT.scope}@${mfeConfigs.login.vtbNFT.url}`,
-      [mfeConfigs.user.vtbNFT.scope]:
-        `${mfeConfigs.user.vtbNFT.scope}@${mfeConfigs.user.vtbNFT.url}`,
+    name: mfeConfigs.user.vtbNFT.scope,
+    filename: mfeConfigs.user.vtbNFT.filename,
+    exposes: {
+      [mfeConfigs.user.vtbNFT.module]: './src/app',
     },
     shared: {
       ...eagers(deps, Object.keys(deps)),
@@ -32,19 +30,25 @@ module.exports = (mfeConfigs) => {
       },
       '@radix-ui/themes': {
         singleton: true,
-        eager: true,
+        eager: !isMicro,
         import: '@radix-ui/themes',
         version: deps['@radix-ui/themes'],
       },
+      '@metamask/sdk-react-ui': {
+        singleton: true,
+        eager: !isMicro,
+        import: '@metamask/sdk-react-ui',
+        version: deps['@metamask/sdk-react-ui'],
+      },
       'vtb-shared': {
         singleton: true,
-        eager: true,
+        eager: !isMicro,
         import: 'vtb-shared',
         version: deps['vtb-shared'],
       },
       'vtb-constants': {
         singleton: true,
-        eager: true,
+        eager: !isMicro,
         import: 'vtb-constants',
         version: deps['vtb-constants'],
       },

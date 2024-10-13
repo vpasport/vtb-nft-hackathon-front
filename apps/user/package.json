@@ -1,5 +1,5 @@
 {
-  "name": "container",
+  "name": "user",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -16,7 +16,9 @@
     "vtb-shared": "workspace:^"
   },
   "scripts": {
+    "start": "react-app-rewired start",
     "start:micro": "webpack serve",
+    "start:micro-single": "webpack serve --config webpack.single.js",
     "build:micro": "webpack --mode production --env production",
     "serve:micro": "serve dist -p 3000 -c development",
     "clean:micro": "rm -rf dist"

@@ -1,6 +1,6 @@
 import { BUILD_START_TIME } from './start-time'
 
-// import { resolve, join } from 'node:path'
+import { resolve, join } from 'node:path'
 import { existsSync } from 'node:fs'
 import { ProvidePlugin, EnvironmentPlugin, DefinePlugin } from 'webpack'
 import { getHtmlWebpackPluginConfig } from './utils'
@@ -14,6 +14,9 @@ export const defaultConfig = (
   option: { withHtml?: boolean } = { withHtml: true },
 ) => {
   require('dotenv').config({ path: `.env.${argv.mode ?? 'development'}` })
+  require('dotenv').config({
+    path: resolve('../../', `.env`),
+  })
 
   return {
     entry: './src/app/index.ts',
@@ -191,7 +194,7 @@ export const defaultConfig = (
         React: 'react',
       }),
       new EnvironmentPlugin({
-        // REACT_APP_BUILD_TIME: BUILD_START_TIME,
+        REACT_APP_INFURA_API_KEY: process.env?.REACT_APP_INFURA_API_KEY ?? '',
       }),
       new DefinePlugin({
         'process.env.REACT_APP_BUILD_TIME': JSON.stringify(BUILD_START_TIME),

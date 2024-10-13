@@ -42,7 +42,9 @@ export default [
     ],
     plugins: [
       replace({
-        values: {},
+        values: {
+          'process.env.REACT_APP_INFURA_API_KEY': `"${process.env.REACT_APP_INFURA_API_KEY || ''}"`,
+        },
         preventAssignment: true,
       }),
       alias({

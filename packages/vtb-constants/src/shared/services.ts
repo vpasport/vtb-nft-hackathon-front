@@ -25,16 +25,6 @@ const getURL = (
 
 export const getConfigs = (buildTime: string, mode: string = 'development') => {
   const config: Record<string, Record<string, MFEData>> = {
-    login: {
-      vtbNFT: {
-        scope: 'LoginApp',
-        filename: `loginAppEntry_${buildTime}.js`,
-        module: './LoginApp',
-        port: 3001,
-        publicPath: mode === 'production' ? '/login' : 'auto',
-        url: '',
-      },
-    },
     container: {
       vtbNFT: {
         scope: 'ContainerApp',
@@ -45,11 +35,33 @@ export const getConfigs = (buildTime: string, mode: string = 'development') => {
         url: '',
       },
     },
+    login: {
+      vtbNFT: {
+        scope: 'LoginApp',
+        filename: `loginAppEntry_${buildTime}.js`,
+        module: './LoginApp',
+        port: 3001,
+        publicPath: mode === 'production' ? '/login' : 'auto',
+        url: '',
+      },
+    },
+    user: {
+      vtbNFT: {
+        scope: 'UserApp',
+        filename: `userAppEntry_${buildTime}.js`,
+        module: './UserApp',
+        port: 3002,
+        publicPath: mode === 'production' ? '/user' : 'auto',
+        url: '',
+      },
+    },
   }
+
+  config.container.vtbNFT.url = getURL(config.container.vtbNFT, mode)
 
   config.login.vtbNFT.url = getURL(config.login.vtbNFT, mode)
 
-  config.container.vtbNFT.url = getURL(config.container.vtbNFT, mode)
+  config.user.vtbNFT.url = getURL(config.user.vtbNFT, mode)
 
   return config
 }
