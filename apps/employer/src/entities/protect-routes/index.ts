@@ -1,1 +1,1 @@
-export * from './protect-routes'
+export * from './model/protect-routes'

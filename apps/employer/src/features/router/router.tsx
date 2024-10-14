@@ -1,31 +1,57 @@
 import type { FC } from 'react'
 
-import { lazy } from 'react'
-import { Routes as ReactRoutes, Route, Navigate } from 'react-router-dom'
+import { lazy, Suspense } from 'react'
+import {
+  Routes as ReactRoutes,
+  Route,
+  Navigate,
+  Outlet,
+} from 'react-router-dom'
 import {
   EMPLOYER_ORGANIZATION_PATH,
   EMPLOYER_ORGANIZATION_PATH_LINK,
+  EMPLOYER_SEARCH_PATH,
   LOGIN_APP_PATH,
+  PageLoader,
 } from 'vtb-shared'
 
 import { ProtectRoutes } from '@/entities/protect-routes'
 import { isMicroApp } from '@/shared/constants/app'
+import { AppLayout } from '@/widgets/app-layout'
 
 const OrganizationPage = lazy(() =>
   import('@/pages/organization').then((module) => ({
     default: module.OrganizationPage,
   })),
 )
+const SearchPage = lazy(() =>
+  import('@/pages/search').then((module) => ({
+    default: module.SearchPage,
+  })),
+)
 
 export const Router: FC = () => {
   return (
     <ReactRoutes>
-      <Route element={<ProtectRoutes />}>
+      <Route
+        element={
+          <ProtectRoutes>
+            <AppLayout>
+              <Suspense fallback={<PageLoader />}>
+                <Outlet />
+              </Suspense>
+            </AppLayout>
+          </ProtectRoutes>
+        }
+      >
         {/* PROFILE */}
         <Route
           path={EMPLOYER_ORGANIZATION_PATH}
           element={<OrganizationPage />}
         />
+
+        {/* SEARCH */}
+        <Route path={EMPLOYER_SEARCH_PATH} element={<SearchPage />} />
 
         <Route
           path={'*'}

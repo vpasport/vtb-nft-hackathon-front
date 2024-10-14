@@ -1,0 +1,18 @@
+.search-user {
+  &-search {
+    &-container {
+      flex-grow: 0;
+    }
+  }
+
+  &-results {
+    &-container {
+      flex: 1;
+      height: 100%;
+
+      & > div {
+        height: 100%;
+      }
+    }
+  }
+}
