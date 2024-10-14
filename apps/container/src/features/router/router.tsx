@@ -1,7 +1,12 @@
 import type { FC } from 'react'
 
 import { Route, Routes } from 'react-router'
-import { LazyService, LOGIN_APP_PATH, USER_APP_PATH } from 'vtb-shared'
+import {
+  EMPLOYER_APP_PATH,
+  LazyService,
+  LOGIN_APP_PATH,
+  USER_APP_PATH,
+} from 'vtb-shared'
 import { BrowserRouter } from 'react-router-dom'
 
 import { MFE } from '@/shared/constants/mfe'
@@ -35,6 +40,20 @@ export const Router: FC = () => {
                   url: MFE.user.vtbNFT.url,
                   scope: MFE.user.vtbNFT.scope,
                   module: MFE.user.vtbNFT.module,
+                }}
+                loadingMessage={<PageLoader />}
+                verified
+              />
+            }
+          />
+          <Route
+            path={EMPLOYER_APP_PATH + '/*'}
+            element={
+              <LazyService
+                microservice={{
+                  url: MFE.employer.vtbNFT.url,
+                  scope: MFE.employer.vtbNFT.scope,
+                  module: MFE.employer.vtbNFT.module,
                 }}
                 loadingMessage={<PageLoader />}
                 verified
