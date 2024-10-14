@@ -55,6 +55,16 @@ export const getConfigs = (buildTime: string, mode: string = 'development') => {
         url: '',
       },
     },
+    employer: {
+      vtbNFT: {
+        scope: 'EmployerApp',
+        filename: `employerAppEntry_${buildTime}.js`,
+        module: './EmployerApp',
+        port: 3003,
+        publicPath: mode === 'production' ? '/employer' : 'auto',
+        url: '',
+      },
+    },
   }
 
   config.container.vtbNFT.url = getURL(config.container.vtbNFT, mode)
@@ -62,6 +72,8 @@ export const getConfigs = (buildTime: string, mode: string = 'development') => {
   config.login.vtbNFT.url = getURL(config.login.vtbNFT, mode)
 
   config.user.vtbNFT.url = getURL(config.user.vtbNFT, mode)
+
+  config.employer.vtbNFT.url = getURL(config.employer.vtbNFT, mode)
 
   return config
 }
