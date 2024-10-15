@@ -1,0 +1,13 @@
+.overflowing-text {
+  overflow: hidden;
+  display: -webkit-box;
+  max-width: 100%;
+
+  -webkit-box-orient: vertical;
+
+  @for $i from 1 through 10 {
+    &_row-#{$i} {
+      -webkit-line-clamp: $i;
+    }
+  }
+}

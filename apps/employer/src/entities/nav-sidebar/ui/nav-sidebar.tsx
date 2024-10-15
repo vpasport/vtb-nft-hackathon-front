@@ -28,6 +28,7 @@ export const NavSidebar: FC = () => {
   return (
     <Flex
       width={isOpen ? '260px' : '88px'}
+      minWidth={isOpen ? '260px' : '88px'}
       p="3"
       className={styles['nav-sidebar-wrapper']}
     >

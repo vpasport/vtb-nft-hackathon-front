@@ -11,6 +11,7 @@ import {
   EMPLOYER_ORGANIZATION_PATH,
   EMPLOYER_ORGANIZATION_PATH_LINK,
   EMPLOYER_SEARCH_PATH,
+  EMPLOYER_USER_PATH,
   LOGIN_APP_PATH,
   PageLoader,
 } from 'vtb-shared'
@@ -27,6 +28,11 @@ const OrganizationPage = lazy(() =>
 const SearchPage = lazy(() =>
   import('@/pages/search').then((module) => ({
     default: module.SearchPage,
+  })),
+)
+const UserPage = lazy(() =>
+  import('@/pages/user').then((module) => ({
+    default: module.UserPage,
   })),
 )
 
@@ -52,6 +58,9 @@ export const Router: FC = () => {
 
         {/* SEARCH */}
         <Route path={EMPLOYER_SEARCH_PATH} element={<SearchPage />} />
+
+        {/* USERS */}
+        <Route path={EMPLOYER_USER_PATH} element={<UserPage />} />
 
         <Route
           path={'*'}
